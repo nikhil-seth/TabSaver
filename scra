@@ -1,0 +1,84 @@
+let addBtn = document.getElementById('addBtn');
+
+let query = { active: true, currentWindow: true };
+let counter=0;
+let currentactive=[];
+tabsave=function(){
+    alert("asd");
+    chrome.tabs.query(query,tabcollector);
+};
+addBtn.addEventListener("click",tabsave, false);
+output=function(id,obj){
+    x=document.getElementById(id);
+    x.insertBefore(y,x.firstChild);
+}
+const currTab={
+    title:"",
+    url:"",
+    cid:0,
+    initialize(Tab){
+        this.title=Tab.title;
+        this.url=Tab.url;
+        counter+=1;
+        this.cid=counter;
+    },
+    retobj=function(){
+        let obj={};
+        obj[this.cid]=this;
+        return obj;
+    },
+    run=function(){
+        console.log(this.cid);
+    },
+    saveTab(){
+        chrome.storage.local.set(this.retobj());
+        alert("Tab Saved");
+    },
+    outputTab(){
+        // Will Output HTML for tab.
+        y=document.createElement('div');
+        y.className=`text-light title-text c${this.cid}`;
+        y.textContent=`${this.title}`;
+        output('title-col',y);
+        y=document.createElement('button');
+        y.type="button";
+        y.value=`${this.cid}`;
+        y.className=`btn btn-light add-btn c${this.cid}`;
+        y.innerHTML=`<object class="add-obj-btn" type="image/svg+xml" data="icons/add.svg">
+        Your browser does not support SVG
+        </object>`;
+        output('',y);
+        y.className=`btn btn-light rem-btn c${this.cid}`;
+        y.innerHTML=`<object class="rem-btn-obj" type="image/svg+xml" data="icons/close.svg">
+        Your browser does not support SVG
+        </object>`
+        output('',y);
+    }
+};
+removeHTML=function(e){
+    let id=e.toElement.value;
+    x=`c${id}`;
+    x=document.getElementsByClassName(x);
+    while(x.length()>0){
+        x[0].remove();
+    }
+    // Need To New Remove it from storage.
+}
+rembtns=document.getElementById('rem-col');
+rembtns.addEventListener("click", removeHTML, false);
+addData = function(obj){
+    alert("asd");
+    d=document.getElementById('Table');
+    e=document.createElement('div');
+    e.innerHTML=`<div> ${obj.title} ${obj.url} ${obj.cid}</div>`;
+    d.insertBefore(e,d.firstChild);
+};
+tabcollector=function(tabs){
+    Tab=tabs[0];
+    console.log('Tab Added');
+    if(Tab!=undefined && Tab!=null){
+        currTab.initialize(Tab);
+        currTab.saveTab();
+        currTab.outputTab();
+    }
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="style.css">
+      <style>
+        button {
+          height: 30px;
+          width: 30px;
+          outline: none;
+        }
+      </style>
+    </head> 
+    <body>
+      <div class="container">
+        <div class="row">
+          <div  class="col-6 above-grid" style="background-color:lavender;">
+            <button id="addBtn" type="button" class="btn btn-success above-btn">Save Tab</button>
+          </div>
+          <div class="col-6 above-grid" style="background-color:lavenderblush;">
+            <button type="button" class="btn btn-danger above-btn">Clear All</button>
+          </div>
+        </div>
+        <div class="row">
+          <div id="title-col" class="col-8 bg-primary">
+          </div>
+          <div id="add-col" class="col-2 col-add" style="background-color:red;">
+          </div>
+          <div id="rem-col" class="col-2 col-rem" style="background-color:red;"> 
+          </div>
+        </div>
+      </div>
+      <script src="app.js"></script>
+    </body>
+  </html>
+  

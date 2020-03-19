@@ -1,0 +1,17 @@
+{
+    "name": "Tab Loader",
+    "version": "1.0",
+    "description": "Saves & Loads the tabs on Chrome!",
+    "manifest_version": 2,
+    "icons":{
+        "16": "images/get_started16.png",
+        "32": "images/get_started32.png",
+        "48": "images/get_started48.png",
+        "128": "images/get_started128.png"
+    },
+    "browser_action":{
+        "default_popup": "popup.html"
+    },
+    "permissions": ["tabs","declarativeContent","storage"],
+    "content_security_policy": "script-src 'self' https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js; object-src 'self'"
+}   

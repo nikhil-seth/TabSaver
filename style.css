@@ -1,0 +1,18 @@
+html{
+    width: 400px;
+    height: 200px;
+}
+.material-icons {
+    align-items: center;
+}
+.above-btn{
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-left:0%;
+    margin-right: 0%;
+}
+.above-grid{
+    padding-left: 2%;
+    padding-right: 2%;
+}
