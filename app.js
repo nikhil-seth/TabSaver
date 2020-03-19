@@ -1,6 +1,5 @@
 let query = { active: true, currentWindow: true };
 let counter=0;
-let currentactive=[];
 const currTab={
     title:"",
     url:"",
@@ -8,9 +7,13 @@ const currTab={
     initialize(Tab){
         this.title=Tab.title;
         this.url=Tab.url;
-        counter+=1;
-        this.cid=counter;
-        currentactive.push(this.cid);
+        if("cid" in Tab){
+            this.cid=Tab.cid;
+        }
+        else{
+            counter+=1;
+            this.cid=counter;
+        }
     },
     retobj(){
         let obj={};
@@ -18,7 +21,7 @@ const currTab={
         return obj;
     },
     run(){
-        console.log(this.cid);
+        //console.log(this.cid);
     },
     saveTabToStorage(){
         chrome.storage.local.set(this.retobj());
@@ -47,21 +50,34 @@ const currTab={
         
     }
 };
-// Remove Tab from Storage Function
-removeTabFromStorage=function(id){
-    chrome.storage.local.remove(`${id}`);
-}
+// Remove All Button Functionality
+removeAllButton=document.getElementById('removeAllButton');
+removeAllButton.addEventListener('click',function(){
+    chrome.storage.local.get(null,function(items){
+        for(key in items){
+            x=`c${key}`;
+            x=document.getElementsByClassName(x);
+            while(x.length>0){
+                x[0].remove();
+            }
+        }
+    });
+    chrome.storage.local.clear();
+    //console.log('Remove All');
+    counter=0;
+});
 // Remove Tab Functionality ( Remove tab from storage + html, given id of tab)
 removeTabButton=document.getElementById('rem-col');
 removeTab=function(e){
-    console.log("Tab Removal Called");
+    //console.log("Tab Removal Called");
     let id=e.toElement.value;
+    //console.log(id);
     x=`c${id}`;
     x=document.getElementsByClassName(x);
     while(x.length>0){
         x[0].remove();
     }
-    removeTabFromStorage(id);
+    chrome.storage.local.remove(`${id}`);
 }
 removeTabButton.addEventListener('click',removeTab);
 
@@ -70,10 +86,11 @@ removeTabButton.addEventListener('click',removeTab);
 // Add Tab Functionality.
 addTabcol=document.getElementById('add-col');
 addTab=function(e){
-    console.log("Tab Add Function");
+    //console.log("Tab Add Function");
     let id=e.toElement.value;
+    //console.log(id);
     chrome.storage.local.get([id],function(Tab){
-        console.log(Tab);
+        //console.log(Tab);
         currTab.initialize(Tab[id]);
         chrome.tabs.create({"url":currTab.url});
         removeTab(e);
@@ -82,14 +99,15 @@ addTab=function(e){
 addTabcol.addEventListener("click",addTab);
 
 // Loading Script
-/*window.onload=function(){
-    for(let i=0;i<currentactive.length;i++){
-        chrome.storage.local.get(currentactive[i],function(Tab){
-            currTab.initialize(Tab[i]);
+window.onload=function(){
+    chrome.storage.local.get(null,function(items){
+        for(key in items){
+            counter=Math.max(counter,parseInt(key));
+            currTab.initialize(items[key]);
             currTab.outputTab();
-        });
-    }
-};*/
+        }
+    });
+}
 // Save Tab Functionality.
 saveTabButton=document.getElementById('addBtn');
 saveTab=function(tabs){
