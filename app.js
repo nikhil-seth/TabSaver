@@ -41,13 +41,13 @@ const currTab={
         x=document.getElementById('add-col');
         y=document.createElement('div');
         y.className=`addbtncls c${this.cid}`;
-        y.innerHTML=`<button type="button" value ="${this.cid}" class="btn btn-primary add-btn">
+        y.innerHTML=`<button type="button" value ="${this.cid}" class="btn btn-primary add-btn" data-toggle="tooltip" data-placement="top" title="Adds the tab to chrome.">
                     +</button>`
         x.insertBefore(y,x.firstChild);
         x=document.getElementById(`rem-col`);
         y=document.createElement('div');
         y.className=`rembtncls c${this.cid}`;
-        y.innerHTML=`<button type="button" value ="${this.cid}" class="btn btn-light rem-btn">
+        y.innerHTML=`<button type="button" value ="${this.cid}" class="btn btn-light rem-btn" data-toggle="tooltip" data-placement="top" title="Removes tab.">
                     x</button>`
         x.insertBefore(y,x.firstChild);
         

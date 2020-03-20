@@ -1,13 +1,13 @@
 html{
-    width: 450px;
+    width: 400px;
     height: 200px;
 }
 body{
     background-color: #77b9eb;
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-top: 2%;
-    padding-bottom:2% ;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 1%;
+    padding-bottom:1% ;
 
 }
 .above-grid{
@@ -16,16 +16,13 @@ body{
 }
 .above-btn{
     width: 100%;
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-top: 3%;
-    padding-bottom: 3%;
+    padding: 1% 3% 1% 3%;
     margin-left:0%;
     margin-right: 0%;
     margin-top: 3%;
     margin-bottom: 3%;
     border-radius: 10px;
-    font-size: 20px;
+    font-size: 17px;
     height: 100%;
     text-align: center;
     color: #fff;
@@ -51,13 +48,16 @@ body{
 }
 .row-prop{
     border-radius: 10px;
+    padding-top:0% 0% 0% 0%;
+    margin:0% 0% 0% 0%;
+    
 }
 .title-text{
     text-align: center;
     align-self: center;
     border-top: 1px solid #d0e6ed;
-    padding-top: 3.72%;
-    padding-bottom: 3.72%;
+    padding-top: 3.85%;
+    padding-bottom: 3.85%;
     background-color: transparent;
     color: white;
     font-weight: bold;
