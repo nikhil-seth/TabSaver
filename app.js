@@ -6,6 +6,11 @@ const currTab={
     cid:0,
     initialize(Tab){
         this.title=Tab.title;
+        console.log(this.title.length)
+        if(this.title.length>33){
+            this.title=this.title.slice(0,29);
+            this.title=this.title.concat('...');
+        }
         this.url=Tab.url;
         if("cid" in Tab){
             this.cid=Tab.cid;
@@ -30,22 +35,20 @@ const currTab={
         // Will Output HTML for tab.
         x=document.getElementById('title-col');
         y=document.createElement('div');
-        y.className=`text-light title-text c${this.cid}`;
-        y.textContent=`${this.title}`;
+        y.className=`title-text c${this.cid}`;
+        y.innerHTML=`<p class="pcal" >${this.title}</p>`;
         x.insertBefore(y,x.firstChild);
         x=document.getElementById('add-col');
         y=document.createElement('div');
         y.className=`addbtncls c${this.cid}`;
-        y.innerHTML=`<button type="button" value ="${this.cid}" class="btn btn-light add-btn">
-                    <object class="add-btn-obj" type="image/svg+xml" data="icons/add.svg">
-                    </object></button>`
+        y.innerHTML=`<button type="button" value ="${this.cid}" class="btn btn-primary add-btn">
+                    +</button>`
         x.insertBefore(y,x.firstChild);
         x=document.getElementById(`rem-col`);
         y=document.createElement('div');
         y.className=`rembtncls c${this.cid}`;
         y.innerHTML=`<button type="button" value ="${this.cid}" class="btn btn-light rem-btn">
-                    <object class="rem-btn-obj" type="image/svg+xml" data="icons/close.svg">
-                    </object></button>`
+                    x</button>`
         x.insertBefore(y,x.firstChild);
         
     }
@@ -109,7 +112,7 @@ window.onload=function(){
     });
 }
 // Save Tab Functionality.
-saveTabButton=document.getElementById('addBtn');
+saveTabButton=document.getElementById('saveTabButton');
 saveTab=function(tabs){
     Tab=tabs[0];
     if(Tab!=undefined && Tab!=null){

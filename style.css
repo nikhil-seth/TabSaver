@@ -1,18 +1,131 @@
 html{
-    width: 400px;
+    width: 450px;
     height: 200px;
 }
-.material-icons {
-    align-items: center;
+body{
+    background-color: #77b9eb;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 2%;
+    padding-bottom:2% ;
+
+}
+.above-grid{
+    padding-left: 2%;
+    padding-right: 2%;
 }
 .above-btn{
     width: 100%;
     padding-left: 5%;
     padding-right: 5%;
+    padding-top: 3%;
+    padding-bottom: 3%;
     margin-left:0%;
     margin-right: 0%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    border-radius: 10px;
+    font-size: 20px;
+    height: 100%;
+    text-align: center;
+    color: #fff;
+    background-color: #3b5d76;
+    border-color: #007bff;
 }
-.above-grid{
+#removeAllButton:focus{
+    background-color: #3b5d76 !important; 
+    border-color: #007bff !important;
+}
+#saveTabButton:focus{
+    background-color: #3b5d76 !important; 
+    border-color: #007bff !important;
+}
+.above-row{
+    align-self:center;
+    margin-left: 0%;
+    margin-right:0%;
+    padding-top:1%;
+    padding-bottom: 1%;
     padding-left: 2%;
     padding-right: 2%;
+}
+.row-prop{
+    border-radius: 10px;
+}
+.title-text{
+    text-align: center;
+    align-self: center;
+    border-top: 1px solid #d0e6ed;
+    padding-top: 3.72%;
+    padding-bottom: 3.72%;
+    background-color: transparent;
+    color: white;
+    font-weight: bold;
+}
+.addbtncls{
+    text-align: center;
+    align-self: center;
+    font-weight: bold;
+    padding-top: 8%;
+    padding-bottom: 8%;
+    padding-left: 20%;
+    padding-right: 20%;
+    border-top: 1px solid #d0e6ed;
+
+}
+.rembtncls{
+    text-align: center;
+    align-self: center;
+    font-weight: bold;
+    padding-top: 8%;
+    padding-bottom: 8%;
+    padding-left: 20%;
+    padding-right: 20%;
+    border-top: 1px solid #d0e6ed;
+}
+#rowm{
+    background-color: transparent;
+    border-bottom: 1px solid #d0e6ed;
+}
+.add-btn{
+    width: 100%;
+    padding:0% 0% 0% 0%;
+    margin: 0% 0% 0% 0%;
+    border-radius: 10px;
+    font-size: 20px;
+    height: 100%;
+    text-align: center;
+    color:black;
+    background-color: white;
+    border-color: #007bff;
+}
+.pcal{
+    width: 100%;
+    padding:0% 0% 0% 0%;
+    margin: 0% 0% 0% 0%;
+    font-size: 15px;
+    height: 100%;
+
+}
+.rem-btn{
+    width: 100%;
+    padding:0% 0% 0% 0%;
+    margin: 0% 0% 0% 0%;
+    border-radius: 10px;
+    font-size: 20px;
+    height: 100%;
+    text-align: center;
+    color: black;
+    background-color: white;
+    border-color: #007bff;
+}
+#add-col{ 
+    padding: 0% 0% 0% 0%;
+}
+#rem-col{
+    padding: 0% 0% 0% 0%;
+}
+#title-col{
+    background-color: transparent;
+    padding:0 0 0 0;
 }
